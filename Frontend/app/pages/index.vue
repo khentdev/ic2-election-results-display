@@ -2,9 +2,9 @@
 </template>
 <script setup lang="ts">
 definePageMeta({
-  redirect: "/home",
-  name: "root",
-  path:"/",
+  redirect: { name: "public-home" },
+  name: "public-root",
+  path: "/",
   layout: "default",
 });
 </script>
