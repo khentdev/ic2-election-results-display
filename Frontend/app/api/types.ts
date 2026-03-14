@@ -1,3 +1,4 @@
+
 export interface VoteResponseDTO {
     success: boolean;
     data: {
@@ -16,9 +17,6 @@ export interface VoteResponseDTO {
     total_votes: number;
 }
 
-export type VoteParamsDTO = {
-    election_batch: number;
-    position: CandidatePositions
-}
-
 export type CandidatePositions = "President" | "Vice President"
+
+export type VoteQueryParams = { position: CandidatePositions, election_batch: number }

@@ -16,13 +16,17 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@peterbud/nuxt-query',
   ],
-
+  image: {
+    format: ["jpg", "png"],
+    quality: 80,
+  },
   nuxtQuery: {
     autoImports: true,
     queryClientOptions: {
       defaultOptions: {
         queries: {
           refetchOnWindowFocus: false,
+          retryDelay: (attemptIndex: number) => Math.min(1000 * 2 ** attemptIndex, 30000),
         }
       }
     }
