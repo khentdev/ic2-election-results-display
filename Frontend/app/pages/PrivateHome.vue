@@ -12,12 +12,11 @@
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full h-full"
       >
-        <AnonymousCandidateCard
+        <CandidateCard
           v-for="(val, i) in getPresidentsData"
           :key="val.cand_id"
           :candidate="val"
           :index="i"
-          nominee-type="Presidential Nominee"
         />
       </div>
       <p
@@ -38,12 +37,11 @@
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full h-full"
       >
-        <AnonymousCandidateCard
+        <CandidateCard
           v-for="(val, i) in getVicePresidentsData"
           :key="val.cand_id"
           :candidate="val"
           :index="i"
-          nominee-type="Vice Presidential Nominee"
         />
       </div>
       <p
@@ -61,8 +59,8 @@
 </template>
 <script setup lang="ts">
 definePageMeta({
-  name: "public-home",
-  path: "/",
+  name: "home-results",
+  path: "/results",
   layout: "default",
 });
 
