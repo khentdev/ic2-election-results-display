@@ -5,13 +5,17 @@
     <div class="w-full h-full lg:h-5/4">
       <NuxtImg
         :src="candidate.cand_photo"
-        :alt="candidate.cand_fullname"
         :preload="{ fetchPriority: 'low' }"
-        class="aspect-video object-cover w-full h-64 lg:h-full"
         :custom="true"
         v-slot="{ src, isLoaded, imgAttrs }"
       >
-        <img :src="src" v-bind="imgAttrs" v-if="isLoaded" />
+        <img
+          v-if="isLoaded"
+          :src="src"
+          v-bind="imgAttrs"
+          :alt="candidate.cand_fullname"
+          class="aspect-video object-cover w-full h-64 lg:h-full"
+        />
         <img
           v-else
           src="/image_placeholder.avif"
