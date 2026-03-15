@@ -24,7 +24,7 @@
         class="text-text-low-contrast/50 capitalize flex items-center gap-2 mt-2 justify-end text-right"
       >
         <span>Total Votes:</span>
-        {{ getPresidentsData.toLocaleString("en-US") }}
+        {{ getPresidentsData.reduce((acc, val) => acc + val.vote_count, 0).toLocaleString("en-US") }}
       </p>
     </div>
     <div class="bg-bg-app p-6 lg:p-10 flex flex-col space-y-4">
@@ -46,7 +46,7 @@
         class="text-text-low-contrast/50 capitalize flex items-center mt-2 gap-2 justify-end text-right"
       >
         <span>Total Votes:</span>
-        {{ getVicePresidentsData.toLocaleString("en-US") }}
+        {{ getVicePresidentsData.reduce((acc, val) => acc + val.vote_count, 0).toLocaleString("en-US") }}
       </p>
     </div>
   </section>
