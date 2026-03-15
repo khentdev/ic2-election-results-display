@@ -57,8 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { useTransition, TransitionPresets } from "@vueuse/core";
+import { TransitionPresets } from "@vueuse/core";
 import type { AnonymousCardVoteProps } from "~/api/types";
 
 const props = defineProps<AnonymousCardVoteProps>();

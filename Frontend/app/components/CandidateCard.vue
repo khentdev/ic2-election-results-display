@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import  { TransitionPresets } from "@vueuse/core";
+import { TransitionPresets } from "@vueuse/core";
 import type { CandidateCardProps } from "~/api/types";
 
 const props = defineProps<CandidateCardProps>();
