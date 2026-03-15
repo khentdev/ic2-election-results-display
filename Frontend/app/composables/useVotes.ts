@@ -7,8 +7,7 @@ export const useVotes = () => {
             refetchInterval: 180000,
             refetchIntervalInBackground: true,
             refetchOnWindowFocus: false,
-            retry: 3,
-            staleTime: 60 * 5 * 1000,
+            staleTime: 180000,
             select: (data: VoteResponseDTO) => {
                 return data.data.sort((a, b) => b.vote_count - a.vote_count)
             }
@@ -18,30 +17,40 @@ export const useVotes = () => {
             refetchInterval: 180000,
             refetchIntervalInBackground: true,
             refetchOnWindowFocus: false,
-            retry: 3,
-            staleTime: 60 * 5 * 1000,
+            staleTime: 180000,
             select: (data: VoteResponseDTO) => {
                 return data.data.sort((a, b) => b.vote_count - a.vote_count)
-
             }
         }]
     })
 
     const isPending = computed(() => results.value.some(r => r.isPending))
-    const isError = computed(() => results.value.some(r => r.isError))
     const isRefetching = computed(() => results.value.some(r => r.isRefetching))
+    const isRefetchingInBackground = computed(() => results.value.some(r => r.isRefetching && !r.isPending))
+
+    const isError = computed(() => results.value.some(r => r.isError))
+    const isBothError = computed(() => results.value.every(r => r.isError))
+
+    const isOnline = useOnline()
+    const isOffline = computed(() => !isOnline.value)
 
     const getPresidentsData = computed(() => results.value[0].data || [])
     const getVicePresidentsData = computed(() => results.value[1].data || [])
 
-    const refetch = () => results.value.forEach(r => r.refetch())
+    const refetch = () => {
+        if (isRefetching.value) return
+        return results.value.forEach(r => r.refetch())
+    }
 
     return {
         getPresidentsData,
         getVicePresidentsData,
         isPending,
         isError,
+        isBothError,
+        isOffline,
         isRefetching,
+        isRefetchingInBackground,
         refetch
     }
 
