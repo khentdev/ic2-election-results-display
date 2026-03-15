@@ -4,11 +4,21 @@
   >
     <div class="w-full h-full lg:h-5/4">
       <NuxtImg
-        src="https://placehold.co/600x600"
-        alt="Placeholder Image"
+        :src="candidate.cand_photo"
+        :alt="candidate.cand_fullname"
         :preload="{ fetchPriority: 'low' }"
         class="aspect-video object-cover w-full h-64 lg:h-full"
-      ></NuxtImg>
+        :custom="true"
+        v-slot="{ src, isLoaded, imgAttrs }"
+      >
+        <img :src="src" v-bind="imgAttrs" v-if="isLoaded" />
+        <img
+          v-else
+          src="/image_placeholder.avif"
+          alt="placeholder"
+          class="aspect-video object-cover w-full h-64 lg:h-full animate-pulse"
+        />
+      </NuxtImg>
     </div>
     <div
       class="bg-component-bg p-6 h-full max-h-72 justify-between w-full flex flex-col gap-5"
