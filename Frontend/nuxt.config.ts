@@ -39,7 +39,9 @@ export default defineNuxtConfig({
   icon: {
     serverBundle: {
       collections: ['lucide']
-    }
+    },
+    mode: 'css',
+    cssLayer: 'base',
   },
 
   vite: {

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="top-0 sticky h-16 py-8 flex items-center justify-center bg-bg-panel border-b border-b-border-subtle"
+    class="top-0 sticky h-16 py-8 flex items-center justify-center bg-bg-panel border-b border-b-border-subtle z-50"
   >
     <div class="flex items-center gap-6 px-6 md:px-10 justify-between w-full">
       <img
