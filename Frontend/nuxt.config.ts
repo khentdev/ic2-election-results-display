@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     '@peterbud/nuxt-query',
   ],
   image: {
-    format: ["jpg", "png"],
+    format: ["jpg", "png", "avif"],
     quality: 80,
   },
   nuxtQuery: {

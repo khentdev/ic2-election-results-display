@@ -9,7 +9,10 @@ export const useVotes = () => {
             refetchOnWindowFocus: false,
             staleTime: 180000,
             select: (data: VoteResponseDTO) => {
-                return data.data.sort((a, b) => b.vote_count - a.vote_count)
+                return data.data.map((candidate) => ({
+                    ...candidate,
+                    cand_photo: getCandidateImage(candidate.cand_fullname)
+                })).sort((a, b) => b.vote_count - a.vote_count)
             }
         }, {
             queryFn: () => votesService.getVotes({ position: "Vice President", election_batch: 2 }),
@@ -19,7 +22,10 @@ export const useVotes = () => {
             refetchOnWindowFocus: false,
             staleTime: 180000,
             select: (data: VoteResponseDTO) => {
-                return data.data.sort((a, b) => b.vote_count - a.vote_count)
+                return data.data.map((candidate) => ({
+                    ...candidate,
+                    cand_photo: getCandidateImage(candidate.cand_fullname)
+                })).sort((a, b) => b.vote_count - a.vote_count)
             }
         }]
     })
