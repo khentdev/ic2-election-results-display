@@ -6,7 +6,7 @@
       class="w-full h-full lg:h-5/4 flex items-center justify-center bg-white"
     >
       <NuxtImg
-        src="/IC2_LOGO_lIGHT_MODE.png"
+        src="/IC2_LOGO_LIGHT_MODE.png"
         :preload="{ fetchPriority: 'low' }"
         :custom="true"
         v-slot="{ src, isLoaded, imgAttrs }"
