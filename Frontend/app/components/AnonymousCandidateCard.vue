@@ -33,7 +33,7 @@
         <h1
           class="text-xl lg:text-3xl font-bold wrap-break-word tracking-wider text-text-accent-high capitalize"
         >
-          Candidate {{ index + 1 }}
+          Candidate
         </h1>
         <p class="text-text-low-contrast/50 md:text-base text-sm capitalize">
           {{ nomineeType }}
