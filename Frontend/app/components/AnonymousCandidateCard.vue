@@ -2,9 +2,11 @@
   <div
     class="bg-bg-app h-full w-full flex flex-col items-center border border-border-subtle rounded-md overflow-hidden"
   >
-    <div class="w-full h-full lg:h-5/4">
+    <div
+      class="w-full h-full lg:h-5/4 flex items-center justify-center bg-white"
+    >
       <NuxtImg
-        src="/image_placeholder.avif"
+        src="/IC2_LOGO_lIGHT_MODE.png"
         :preload="{ fetchPriority: 'low' }"
         :custom="true"
         v-slot="{ src, isLoaded, imgAttrs }"
@@ -14,7 +16,7 @@
           :src="src"
           v-bind="imgAttrs"
           alt="Placeholder Image"
-          class="aspect-video object-cover w-full h-64 lg:h-full"
+          class="aspect-video object-contain w-44 h-44 lg:w-52 lg:h-52"
         />
         <img
           v-else
